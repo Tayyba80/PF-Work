@@ -1,49 +1,50 @@
 #include<iostream>
-#include<windows.h>
+
 using namespace std;
-void gotoxy(int,int);
-void printmaze();
-void printp(int x,int y);
-
- main()
- {system ("cls");
-  printmaze();
-  int x=3,y=3;
-  printp(x,y);
-
- }
- void printmaze()
- {
-  cout<<"##############################"<<endl;
-  cout<<"#                            #"<<endl;
-  cout<<"#                            #"<<endl;
-  cout<<"#                            #"<<endl; 
-  cout<<"#                            #"<<endl;
-  cout<<"#                            #"<<endl;
-  cout<<"#                            #"<<endl;
-  cout<<"#                            #"<<endl;
-  cout<<"#                            #"<<endl;
-  cout<<"#                            #"<<endl;
-  cout<<"#                            #"<<endl;
-  cout<<"##############################"<<endl;
-}
-void printp(int x,int y)
+float Pvolume(float volume,string unit);
+main()
 {
-   x=3;
-   y=3;
-   gotoxy(x-1,y);
-   cout<<"";
-   gotoxy(x,y);
-   cout<<"p";
-   Sleep(1000);
+  float length,width,height,volume,cubicvolume;
+  string unit;
+
+  cout<<"Enter length:";
+  cin>>length;
+
+  cout<<"Enter height:";
+  cin>>height;
+
+  cout<<"Enter width:";
+  cin>>width;
+
+  cout<<"Enter unit:";
+  cin>>unit;
+
+  volume=(length*width*height)/3;
+  cout<<"ans"<<volume;
+  cubicvolume=Pvolume(volume,unit);
+  cout<<"Cubic volume of pyramid is:"<<cubicvolume;
+
 }
 
- 
+  float Pvolume(float volume,string unit)
+  {
+     float cubicvolume;
+     if(unit=="centimeter")
+     {
+        cubicvolume=(volume*1000000);
+        return cubicvolume;
+     }
+     if(unit=="kilometer")
+     {
+       cubicvolume=(volume/1000000000);
+       return cubicvolume;
+     }
+     if(unit=="milimeter")
+     {
+       cubicvolume=(volume*1000000000);
+       return cubicvolume;
+     }
+  }
+  
 
-void gotoxy(int x,int y)
-{
-COORD coordinates;
-coordinates.X=x;
-coordinates.Y=y;
-SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coordinates);
-}
+

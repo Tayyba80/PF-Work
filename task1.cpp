@@ -1,21 +1,20 @@
 #include<iostream>
-#include<windows.h>
 using namespace std;
 
-void gotoxy(int x,int y)
+int value1=10;
+int value2=20;
+int sum()
 {
-COORD coordinates;
-coordinates.X=x;
-coordinates.Y=y;
-SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coordinates);
+  value1=40;
+  return value1+value2;
 }
+main()
+{
+ int x=value1;
+ value1=100;
+ x=20;
+ value2=sum();
+ cout<<value1<<" "<<value2; 
 
-int main()
- {
- cout<<"test";
 
- gotoxy(15,15);
- cout<<"My name is Tayyba";
-
-
- }
+}

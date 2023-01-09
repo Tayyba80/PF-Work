@@ -1,61 +1,42 @@
 #include<iostream>
-#include<windows.h>
+#include<cmath>
 using namespace std;
-void gotoxy(int,int);
-void printmaze();
-void printp(int x,int y);
-
-void gotoxy(int x,int y)
-{
-COORD coordinates;
-coordinates.X=x;
-coordinates.Y=y;
-SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coordinates);
-}
 
 main()
 {
-  system("cls");
-  int x=3,y=3;
-  printmaze();
-    while(true)
-      {
-          printp(x,y);
-          if(x<15)
-           {
-             x=x+1;
-           }
+  float hour,days,worker,workday,whour,thour,complete,complete2,actual;
+  float notwork;
+  cout<<"Enter neede hours to complete a task:";
+  cin>>hour;
 
-          if(x==15)
-           {
-             gotoxy(x-1,y);
-             cout<<" ";
-             x=3;
-           }
-      }
-}
+  cout<<"Enter days that frim has:";
+  cin>>days;
 
-void printmaze()
- {
-  cout<<"##############################"<<endl;
-  cout<<"#                            #"<<endl;
-  cout<<"#                            #"<<endl;
-  cout<<"#                            #"<<endl; 
-  cout<<"#                            #"<<endl;
-  cout<<"#                            #"<<endl;
-  cout<<"#                            #"<<endl;
-  cout<<"#                            #"<<endl;
-  cout<<"#                            #"<<endl;
-  cout<<"#                            #"<<endl;
-  cout<<"#                            #"<<endl;
-  cout<<"##############################"<<endl;
-}
+  cout<<"Enter the number of worker:";
+  cin>>worker;
 
-void printp(int x,int y)
-{ 
-  gotoxy(x-1,y);
-  cout<<" ";
-  gotoxy(x,y);
-  cout<<"P";
-  Sleep(200);
+  notwork=(days*10)/100;
+  cout<<notwork<<endl;
+  
+  workday=days-notwork;
+  cout<<workday;
+
+  whour=workday*10;
+  cout<<"working hour"<<whour<<endl;
+  thour=worker*whour;
+  cout<<"all the workers have total hour ="<<thour<<endl;
+
+  complete=thour-hour;
+  complete2=hour-thour;
+  if(thour>hour)
+  {
+     cout<<"yes!"<<complete<<" hour left";
+
+  }
+  if(thour<hour)
+  {
+     cout<<"Not enough time!"<<complete2<<" hour needed";
+
+  }
+
 }

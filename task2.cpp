@@ -1,37 +1,57 @@
 #include<iostream>
-#include<windows.h>
 using namespace std;
-
-void gotoxy(int x,int y);
-void maze();
-
+float taxcalculator(float price, char type);
 main()
 {
-  system("cls");
-  maze();
-}
-void maze()
- {
-  cout<<"##############################"<<endl;
-  cout<<"#                            #"<<endl;
-  cout<<"#                            #"<<endl;
-  cout<<"#                            #"<<endl; 
-  cout<<"#                            #"<<endl;
-  cout<<"#                            #"<<endl;
-  cout<<"#                            #"<<endl;
-  cout<<"#                            #"<<endl;
-  cout<<"#                            #"<<endl;
-  cout<<"#                            #"<<endl;
-  cout<<"#                            #"<<endl;
-  cout<<"##############################"<<endl;
-}
- 
-void gotoxy(int x,int y)
-{
-COORD coordinates;
-coordinates.X=x;
-coordinates.Y=y;
-SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coordinates);
-}
+  char type;
+  float price,fprice,tax;
 
+  cout<<"Enter vehicle type with only enter first letter in Capital:";
+  cin>>type;
+
+  cout<<"Enter price:";
+  cin>>price;
+  fprice=taxcalculator( price, type);
+  cout<<"The  price of vehicle .."<<type<<"..after adding tax of.."<<tax<<"..is:"<<fprice;
+}
+float taxcalculator(float price, char type)
+{
+  float tax=0,fprice=0;
+
+   if(type=='M')
+    {
+      tax=(price*6)/100; 
+      fprice=price+tax;
+      
+      return fprice;
+    }
+    if(type=='E')
+    {
+      tax=(price*8)/100;
+      fprice=price+tax;
+      
+       return fprice;
+    }
+    if(type=='S')
+    {
+      tax=(price*10)/100;
+      fprice=price+tax;
+     
+       return fprice;
+    }
+     if(type=='V')
+    {
+      tax=(price*12)/100;
+      fprice=price+tax;
+      
+       return fprice;
+    }
+     if(type=='T')
+    {
+      tax=(price*15)/100;
+      fprice=price+tax;
+      
+       return fprice;
+    }
+}
 
